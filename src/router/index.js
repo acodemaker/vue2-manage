@@ -7,6 +7,10 @@ const login = r => require.ensure([], () => r(require('@/page/login')), 'login')
 const manage = r => require.ensure([], () => r(require('@/page/manage')), 'manage');
 const home = r => require.ensure([], () => r(require('@/page/home')), 'home');
 const addShop = r => require.ensure([], () => r(require('@/page/addShop')), 'addShop');
+const message = r => require.ensure([], () => r(require('@/page/message')), 'message');
+const qrCode = r => require.ensure([], () => r(require('@/page/qrCode')), 'qrCode');
+const knowledge = r => require.ensure([], () => r(require('@/page/knowledge')), 'knowledge');
+
 const addGoods = r => require.ensure([], () => r(require('@/page/addGoods')), 'addGoods');
 const userList = r => require.ensure([], () => r(require('@/page/userList')), 'userList');
 const shopList = r => require.ensure([], () => r(require('@/page/shopList')), 'shopList');
@@ -38,58 +42,67 @@ const routes = [
 			path: '/addShop',
 			component: addShop,
 			meta: ['添加数据', '添加商铺'],
+		// },{
+		// 	path: '/addGoods',
+		// 	component: addGoods,
+		// 	meta: ['添加数据', '添加商品'],
 		},{
-			path: '/addGoods',
-			component: addGoods,
-			meta: ['添加数据', '添加商品'],
-		},{
-			path: '/userList',
-			component: userList,
-			meta: ['数据管理', '用户列表'],
-		},{
-			path: '/shopList',
-			component: shopList,
-			meta: ['数据管理', '商家列表'],
-		},{
-			path: '/foodList',
-			component: foodList,
-			meta: ['数据管理', '食品列表'],
-		},{
-			path: '/orderList',
-			component: orderList,
-			meta: ['数据管理', '订单列表'],
-		},{
-			path: '/adminList',
-			component: adminList,
-			meta: ['数据管理', '管理员列表'],
-		},{
-			path: '/visitor',
-			component: visitor,
-			meta: ['图表', '用户分布'],
-		},{
-			path: '/newMember',
-			component: newMember,
-			meta: ['图表', '用户数据'],
-		},{
-			path: '/uploadImg',
-			component: uploadImg,
-			meta: ['文本编辑', 'MarkDown'],
-		},{
-			path: '/vueEdit',
-			component: vueEdit,
-			meta: ['编辑', '文本编辑'],
-		},{
-			path: '/adminSet',
-			component: adminSet,
-			meta: ['设置', '管理员设置'],
-		},{
-			path: '/sendMessage',
-			component: sendMessage,
-			meta: ['设置', '发送通知'],
-		},{
-			path: '/explain',
-			component: explain,
-			meta: ['说明', '说明'],
+		    name: 'qrCode',
+		    path: '/qrCode',
+            component: qrCode,
+            meta: ['二维码'],
+            props: true
+        },{
+		    name: 'message',
+			path: '/message',
+			component: message,
+			meta: [ '发送消息'],
+            props: true
+		// }
+		// ,{
+		// 	path: '/shopList',
+		// 	component: shopList,
+		// 	meta: ['数据管理', '商家列表'],
+		// },{
+		// 	path: '/foodList',
+		// 	component: foodList,
+		// 	meta: ['数据管理', '食品列表'],
+		// },{
+		// 	path: '/orderList',
+		// 	component: orderList,
+		// 	meta: ['数据管理', '订单列表'],
+		// },{
+		// 	path: '/adminList',
+		// 	component: adminList,
+		// 	meta: ['数据管理', '管理员列表'],
+		// },{
+		// 	path: '/visitor',
+		// 	component: visitor,
+		// 	meta: ['图表', '用户分布'],
+		// },{
+		// 	path: '/newMember',
+		// 	component: newMember,
+		// 	meta: ['图表', '用户数据'],
+		// },{
+		// 	path: '/uploadImg',
+		// 	component: uploadImg,
+		// 	meta: ['文本编辑', 'MarkDown'],
+		// },{
+		// 	path: '/vueEdit',
+		// 	component: vueEdit,
+		// 	meta: ['编辑', '文本编辑'],
+		// },{
+		// 	path: '/adminSet',
+		// 	component: adminSet,
+		// 	meta: ['设置', '管理员设置'],
+		// },{
+		// 	path: '/sendMessage',
+		// 	component: sendMessage,
+		// 	meta: ['设置', '发送通知'],
+		// },{
+		// 	path: '/explain',
+		// 	component: explain,
+		// 	meta: ['说明', '说明'],
 		}]
 	}
 ]

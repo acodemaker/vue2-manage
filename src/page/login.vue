@@ -60,19 +60,28 @@
 			async submitForm(formName) {
 				this.$refs[formName].validate(async (valid) => {
 					if (valid) {
-						const res = await login({user_name: this.loginForm.username, password: this.loginForm.password})
-						if (res.status == 1) {
-							this.$message({
-		                        type: 'success',
-		                        message: '登录成功'
-		                    });
-							this.$router.push('manage')
-						}else{
-							this.$message({
-		                        type: 'error',
-		                        message: res.message
-		                    });
-						}
+						const res = await login({username: this.loginForm.username, password: this.loginForm.password})
+						console.log(res)
+                        localStorage.setItem('token', res.token)
+                        if (res.code == 404) {
+                            this.$router.push({name:'qrCode', params:{qrCode:res.data}})
+                        } else if (res.code == 200) {
+                            this.$router.push({name:'message'})
+
+                        }
+
+                        // if (res.status == 1) {
+						// 	this.$message({
+		                //         type: 'success',
+		                //         message: '登录成功'
+		                //     });
+						// 	this.$router.push('manage')
+						// }else{
+						// 	this.$message({
+		                //         type: 'error',
+		                //         message: res.message
+		                //     });
+						// }
 					} else {
 						this.$notify.error({
 							title: '错误',

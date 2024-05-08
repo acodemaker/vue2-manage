@@ -84,8 +84,7 @@
                     }else{
                         throw new Error('获取数据失败');
                     }
-                    this.getUsers();
-                }catch(err){
+                 }catch(err){
                     console.log('获取数据失败', err);
                 }
             },

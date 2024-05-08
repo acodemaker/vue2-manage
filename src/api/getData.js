@@ -4,7 +4,7 @@ import fetch from '@/config/fetch'
  * 登陆
  */
 
-export const login = data => fetch('/admin/login', data, 'POST');
+export const login = data => fetch('/login', data, 'POST');
 
 /**
  * 退出
@@ -17,6 +17,14 @@ export const signout = () => fetch('/admin/signout');
  */
 
 export const getAdminInfo = () => fetch('/admin/info');
+export const getWxStatus = () => fetch('/getStatus');
+export const addKnowledge = (content) => fetch('/knowledgeAdd', { 'knowledge' : content}, 'POST');
+
+export const getTags = () => fetch("/getAllTags");
+export const getContacts = tag => fetch('/getContacts?tag=' + tag);
+export const getRooms = () => fetch('/getAllRoom');
+export const sendMsg = (condidates, msgs) => fetch('/sendMsg', {'condidates': condidates, 'msgs': msgs}, 'POST')
+
 
 /**
  * api请求量
@@ -73,7 +81,7 @@ export const adminCount = () => fetch('/admin/count');
  */
 
 export const cityGuess = () => fetch('/v1/cities', {
-	type: 'guess'
+    type: 'guess'
 });
 
 /**
@@ -87,9 +95,9 @@ export const addShop = data => fetch('/shopping/addShop', data, 'POST');
  */
 
 export const searchplace = (cityid, value) => fetch('/v1/pois', {
-	type: 'search',
-	city_id: cityid,
-	keyword: value
+    type: 'search',
+    city_id: cityid,
+    keyword: value
 });
 
 /**
